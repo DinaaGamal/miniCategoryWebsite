@@ -1,0 +1,32 @@
+<div>
+  <mat-form-field appearance="legacy">
+    <mat-label>Search</mat-label>
+    <input #searchText matInput placeholder="By  name" />
+    <mat-icon matSuffix float="left" (click)="search(searchText)"
+      >search</mat-icon
+    >
+    <mat-icon matSuffix (click)="reset(searchText)">clear</mat-icon>
+  </mat-form-field>
+
+  <h2 *ngIf="categories.length === 0">No Categoriess Found!</h2>
+</div>
+<div class="container-fluid">
+  <div class="col-md-3">
+    <mat-accordion>
+      <mat-expansion-panel *ngFor="let c of categories">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{ c.cName }}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-list role="list">
+          <mat-list-item *ngFor="let i of c['items']" role="listitem">
+            <a [routerLink]="['/categories', i.id]">
+              {{ i.name }}
+            </a>
+          </mat-list-item>
+        </mat-list>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>

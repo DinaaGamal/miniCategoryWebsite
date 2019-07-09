@@ -1,0 +1,16 @@
+<!-- <h2 mat-dialog-title>{{ data }}</h2> -->
+
+<div mat-dialog-content>
+  <mat-form-field>
+    <input matInput [(ngModel)]="category" placeholder="Category Description" />
+  </mat-form-field>
+  ....
+</div>
+<div>
+  <mat-dialog-actions>
+    <button class="mat-raised-button" (click)="close()">Close</button>
+    <button class="mat-raised-button mat-primary" (click)="save(category)">
+      Save
+    </button>
+  </mat-dialog-actions>
+</div>
